@@ -11,6 +11,12 @@
 
     <name>RedactJ (Parent)</name>
     <description>Zero-Overhead Compile-Time PII Masking and Data Redaction Framework</description>
+    <modules>
+        <module>redactj-api</module>
+        <module>redactj-processor</module>
+        <module>redactj-logback</module>
+        <module>redactj-example</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
