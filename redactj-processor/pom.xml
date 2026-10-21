@@ -32,6 +32,18 @@
             <artifactId>auto-service</artifactId>
             <scope>provided</scope>
         </dependency>
+
+        <!-- Testing dependencies -->
+        <dependency>
+            <groupId>com.google.testing.compile</groupId>
+            <artifactId>compile-testing</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
