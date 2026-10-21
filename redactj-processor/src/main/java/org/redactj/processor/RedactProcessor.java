@@ -95,6 +95,12 @@ public class RedactProcessor extends AbstractProcessor {
 
         // 1. Scan and validate annotated elements
         for (Element element : roundEnv.getElementsAnnotatedWith(Redact.class)) {
+            // Filter out synthetic fields in Java 21 records to prevent duplicate processing
+            if (element.getEnclosingElement().getKind() == ElementKind.RECORD
+                    && element.getKind() == ElementKind.FIELD) {
+                continue;
+            }
+
             // Validate supported element kinds (Fields and Record Components)
             if (element.getKind() != ElementKind.FIELD && element.getKind() != ElementKind.RECORD_COMPONENT) {
                 messager.printMessage(
