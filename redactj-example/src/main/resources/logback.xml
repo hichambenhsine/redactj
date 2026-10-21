@@ -1,0 +1,19 @@
+<configuration>
+    <!--
+        Registers the RedactJ custom pattern conversion word.
+        Replaces standard %msg to intercept arguments and mask PII before writing to appenders.
+    -->
+    <conversionRule conversionWord="redactMsg"
+                    converterClass="org.redactj.logback.RedactJMessageConverter" />
+
+    <!-- Console Appender using the RedactJ message converter -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %redactMsg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+    </root>
+</configuration>
